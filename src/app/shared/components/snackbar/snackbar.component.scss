@@ -1,0 +1,32 @@
+/* src/app/shared/snackbar/snackbar.component.scss */
+.snackbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: black;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+  }
+  
+  .snackbar-success {
+    background-color: red;
+  }
+  
+  .snackbar-warning {
+    background-color: yellow;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

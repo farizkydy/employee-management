@@ -1,0 +1,16 @@
+<div class="employee-detail-container">
+    <h1>Employee Detail</h1>
+    <div *ngIf="employee" class="details">
+      <p>Username: {{ employee.username }}</p>
+      <p>First Name: {{ employee.firstName }}</p>
+      <p>Last Name: {{ employee.lastName }}</p>
+      <p>Email: {{ employee.email }}</p>
+      <p>Birth Date: {{ employee.birthDate | date }}</p>
+      <p>Basic Salary: {{ employee.basicSalary | currency:"Rp " }}</p>
+      <p>Status: {{ employee.status }}</p>
+      <p>Group: {{ employee.group }}</p>
+      <p>Description: {{ employee.description }}</p>
+      <button (click)="navigateToEmployeeList()">OK</button>
+    </div>
+  </div>
+  

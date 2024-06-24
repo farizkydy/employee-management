@@ -1,0 +1,48 @@
+<div class="modal-overlay">
+    <div class="modal-container">
+      <h2>Edit Employee</h2>
+      <form [formGroup]="editForm" (ngSubmit)="onSave()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" formControlName="username" type="text">
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" formControlName="firstName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" formControlName="lastName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email">
+        </div>
+        <div class="form-group">
+          <label for="birthDate">Birth Date</label>
+          <input id="birthDate" formControlName="birthDate" type="date">
+        </div>
+        <div class="form-group">
+          <label for="basicSalary">Basic Salary</label>
+          <input id="basicSalary" formControlName="basicSalary" type="text">
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <input id="status" formControlName="status" type="text">
+        </div>
+        <div class="form-group">
+          <label for="group">Group</label>
+          <input id="group" formControlName="group" type="text">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input id="description" formControlName="description" type="text">
+        </div>
+        <div class="modal-actions form-group">
+          <button type="submit" class="action-button">Save</button>
+          <button type="button" class="action-button cancel-button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

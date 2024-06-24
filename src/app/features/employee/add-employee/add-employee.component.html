@@ -1,0 +1,39 @@
+<div class="add-employee-container">
+  <h1>Add Employee</h1>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSave()">
+    <input type="text" formControlName="username" placeholder="Username" />
+    <div *ngIf="employeeForm.get('username')?.invalid && employeeForm.get('username')?.touched" class="error-message">Username is required.</div>
+
+    <input type="text" formControlName="firstName" placeholder="First Name" />
+    <div *ngIf="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched" class="error-message">First Name is required.</div>
+
+    <input type="text" formControlName="lastName" placeholder="Last Name" />
+    <div *ngIf="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched" class="error-message">Last Name is required.</div>
+
+    <input type="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" class="error-message">Email is required and must be a valid email format.</div>
+
+    <input type="date" formControlName="birthDate" [max]="today" placeholder="Birth Date" />
+    <div *ngIf="employeeForm.get('birthDate')?.invalid && employeeForm.get('birthDate')?.touched" class="error-message">Birth Date is required and must not exceed today's date.</div>
+
+    <input type="number" formControlName="basicSalary" placeholder="Basic Salary" />
+    <div *ngIf="employeeForm.get('basicSalary')?.invalid && employeeForm.get('basicSalary')?.touched" class="error-message">Basic Salary is required and must be a valid number.</div>
+
+    <input type="text" formControlName="status" placeholder="Status" />
+    <div *ngIf="employeeForm.get('status')?.invalid && employeeForm.get('status')?.touched" class="error-message">Status is required.</div>
+
+    <select formControlName="group" placeholder="Group">
+      <option value="">Select Group</option>
+      <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
+    </select>
+    <div *ngIf="employeeForm.get('group')?.invalid && employeeForm.get('group')?.touched" class="error-message">Group is required.</div>
+
+    <textarea formControlName="description" placeholder="Description"></textarea>
+    <div *ngIf="employeeForm.get('description')?.invalid && employeeForm.get('description')?.touched" class="error-message">Description is required.</div>
+
+    <div class="actions">
+      <button type="submit">Save</button>
+      <button type="button" class="cancel" (click)="navigateToEmployeeList()">Cancel</button>
+    </div>
+  </form>
+</div>

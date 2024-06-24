@@ -1,0 +1,66 @@
+<div class="employee-list-container">
+    <h1>Employee List</h1>
+    <div class="actions">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." />
+      <div class="show-item">
+        <label for="perPage" class="items-per-page-label">Items per Page:</label>
+        <select id="perPage" [(ngModel)]="itemsPerPage" (change)="onChangeItemsPerPage()" class="items-per-page-select">
+            <option [value]="10">10</option>
+            <option [value]="20">20</option>
+            <option [value]="50">50</option>
+            <option [value]="100">100</option>
+          </select>
+      </div>
+      
+      <button class="action-button edit-button" (click)="onSearch()">Search</button>
+      <button class="action-button delete-button" (click)="navigateToAddEmployee()">Add Employee</button>
+    </div>
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th (click)="sort('id')">No.</th>
+          <th (click)="sort('username')">Username</th>
+          <th (click)="sort('firstName')">First Name</th>
+          <th (click)="sort('lastName')">Last Name</th>
+          <th (click)="sort('email')">Email</th>
+          <th (click)="sort('birthDate')">Birth Date</th>
+          <th (click)="sort('basicSalary')">Basic Salary</th>
+          <th (click)="sort('status')">Status</th>
+          <th (click)="sort('group')">Group</th>
+          <th (click)="sort('description')">Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of paginatedEmployees; let i = index;" (click)="detailProfile(employee.id)">
+          <td (click)="detailProfile(employee.id)">{{i + 1}}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.username }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.firstName }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.lastName }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.email }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.birthDate | date }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.basicSalary | currency:"Rp" }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.status }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.group }}</td>
+          <td (click)="detailProfile(employee.id)">{{ employee.description }}</td>
+          <td class="action">
+            <button class="edit" (click)="editEmployee(employee)">Edit</button>
+            <button class="delete" (click)="deleteEmployee(employee)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" class="pagination-button">Previous</button>
+      <span>Page {{ currentPage }}</span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()" class="pagination-button">Next</button>
+    </div>
+    <app-edit-employee-modal
+      *ngIf="showEditModal"
+      [employee]="selectedEmployee"
+      (save)="onEditSave($event)"
+      (cancel)="onEditCancel()">
+    </app-edit-employee-modal>
+    <app-snackbar *ngIf="isShowSnackBar" [configSnackBar]="configSnackBar"></app-snackbar>
+  </div>
+  
