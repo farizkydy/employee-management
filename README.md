@@ -1,27 +1,50 @@
-# EmployeeManagement
+# Employee Management Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+This is a simple employee management application built with Angular. It utilizes an API hosted on Mock API with a Clean Architecture approach.
 
-## Development server
+The application allows users to manage employees, including listing, adding, editing, and deleting employee records.
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Node.js (v14.x or higher recommended)
+- Angular CLI
+- Internet connection (for API access)
+## Getting Started
 
-## Code scaffolding
+### Clone the repository
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Clone the repository to your local machine:
 
-## Build
+```bash
+git clone https://github.com/farizkydy/employee-management
+cd employee-management
+npm install
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+```markdown
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Login Page**: 
+  - Use 'admin' username and password to login (dummy authentication).
+  
+- **Employee List Page**:
+  - Displays a list of employees fetched from the API.
+  - Supports paging, sorting, and searching.
+  - Click "Add Employee" to navigate to the Add Employee page.
+  - Click "Edit" or "Delete" on an employee row to perform actions (notifies with different colored notifications).
 
-## Running end-to-end tests
+- **Add Employee Page**:
+  - Form to add a new employee.
+  - All fields are mandatory; errors will display if any fields are empty.
+  - Birth Date uses a date picker and cannot exceed today's date.
+  - Basic Salary must be a number.
+  - Group field is a dropdown with a search feature.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Edit Employee**:
+  - Modal or form to edit an existing employee's details.
+  - Validates fields similar to Add Employee.
 
-## Further help
+- **Employee Detail Page**:
+  - Displays detailed information about a selected employee.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
